@@ -27,31 +27,43 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice){
-        return 'its a draw';
+        return 'its a draw, computer chose ' + computerChoice;
     }
     else if (humanChoice === 'rock' && computerChoice === 'paper'){
+        computerScore += 1;
         return 'you Lose, computer chose paper';
     }
     else if (humanChoice === 'paper' && computerChoice === 'scissor'){
+        computerScore += 1;
         return 'you Lose, computer chose scissor';
     }
     else if (humanChoice === 'scissor' && computerChoice === 'rock'){
-        return 'you Lose, computer chose scissor';
+        computerScore += 1;
+        return 'you Lose, computer chose rock';
     }
     else if (humanChoice === 'rock' && computerChoice === 'scissor'){
+        humanScore += 1;
         return 'you Win, computer chose scissor';
     }
     else if (humanChoice === 'paper' && computerChoice === 'rock'){
+        humanScore += 1;
         return 'you Win, computer chose rock';
     }
     else if (humanChoice === 'scissor' && computerChoice === 'paper'){
+        humanScore += 1;
         return 'you Win, computer chose paper';
     }
 }
 
-let result = playRound(getComputerChoice(),getHumanChoice());
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const result = playRound(getHumanChoice(), getComputerChoice());
+        console.log(result);  // Display each round result
+    }
+    console.log(`Final Scores: Human ${humanScore}, Computer ${computerScore}`);
+}
+playGame();
 
-console.log(result);
 
 
 
