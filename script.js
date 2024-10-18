@@ -35,8 +35,10 @@ buttons.forEach(button => {
     let tempResult = playRound(event.target.id, computerChoice);
     console.log(tempResult);
     gameCount++;
+    document.getElementById("score").innerText = tempResult;
     if(gameCount == 5){
       console.log(`Final Scores: Human ${humanScore}, Computer ${computerScore}`)
+      document.getElementById("result").innerText = `Final Scores: Human ${humanScore}, Computer ${computerScore}`;
     }
     
   })
@@ -45,25 +47,25 @@ buttons.forEach(button => {
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
-    return "its a draw, computer chose " + computerChoice;
+    return "Its a draw, computer chose " + computerChoice;
   } else if (humanChoice === "rock" && computerChoice === "paper") {
     computerScore += 1;
-    return "you Lose, computer chose paper";
+    return "You Lose, computer chose paper";
   } else if (humanChoice === "paper" && computerChoice === "scissor") {
     computerScore += 1;
-    return "you Lose, computer chose scissor";
+    return "You Lose, computer chose scissor";
   } else if (humanChoice === "scissor" && computerChoice === "rock") {
     computerScore += 1;
-    return "you Lose, computer chose rock";
+    return "You Lose, computer chose rock";
   } else if (humanChoice === "rock" && computerChoice === "scissor") {
     humanScore += 1;
-    return "you Win, computer chose scissor";
+    return "You Win, computer chose scissor";
   } else if (humanChoice === "paper" && computerChoice === "rock") {
     humanScore += 1;
-    return "you Win, computer chose rock";
+    return "You Win, computer chose rock";
   } else if (humanChoice === "scissor" && computerChoice === "paper") {
     humanScore += 1;
-    return "you Win, computer chose paper";
+    return "You Win, computer chose paper";
   }
 }
 
